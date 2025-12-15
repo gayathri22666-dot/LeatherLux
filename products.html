@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shop Products - LeatherLux</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse our collection of premium leather products. Shop handcrafted bags, wallets, belts, and shoes at LeatherLux.">
+    <meta name="keywords"
+        content="shop leather products, buy leather bags, leather wallets online, leather belts, leather shoes">
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👜</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="renderProducts(products); updateCartCount()">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand brand-logo" href="index.html">
+                <i class="fas fa-shopping-bag me-2"></i>LeatherLux
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link active">Shop</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link">
+                            <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="text-white mb-3">Our Products</h1>
+            <p class="text-white-50">Discover our premium collection of handcrafted leather goods</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <div class="container my-5">
+        <!-- Filter Buttons -->
+        <div class="text-center mb-4">
+            <div class="btn-group" role="group">
+                <button onclick="renderProducts(products)" class="btn btn-outline-dark">
+                    <i class="fas fa-th me-2"></i>All Products
+                </button>
+                <button onclick="filter('bags')" class="btn btn-outline-dark">
+                    <i class="fas fa-briefcase me-2"></i>Bags
+                </button>
+                <button onclick="filter('wallets')" class="btn btn-outline-dark">
+                    <i class="fas fa-wallet me-2"></i>Wallets
+                </button>
+                <button onclick="filter('belts')" class="btn btn-outline-dark">
+                    <i class="fas fa-grip-lines me-2"></i>Belts
+                </button>
+                <button onclick="filter('shoes')" class="btn btn-outline-dark">
+                    <i class="fas fa-shoe-prints me-2"></i>Shoes
+                </button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="row g-4" id="productList"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">
+                        <i class="fas fa-shopping-bag me-2"></i>LeatherLux
+                    </h5>
+                    <p class="text-muted">Premium handcrafted leather products with timeless elegance. Quality that
+                        lasts a lifetime.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-pinterest fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="products.html" class="text-muted text-decoration-none">Shop</a></li>
+                        <li><a href="about.html" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">Categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html" class="text-muted text-decoration-none">Leather Bags</a></li>
+                        <li><a href="products.html" class="text-muted text-decoration-none">Leather Wallets</a></li>
+                        <li><a href="products.html" class="text-muted text-decoration-none">Leather Belts</a></li>
+                        <li><a href="products.html" class="text-muted text-decoration-none">Leather Shoes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">Contact Info</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Leather Street, India</li>
+                        <li><i class="fas fa-phone me-2"></i>+91 1234567890</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@leatherlux.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center text-muted">
+                <p class="mb-0">&copy; 2024 LeatherLux. All rights reserved. | Crafted with <i
+                        class="fas fa-heart text-danger"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
